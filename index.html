@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My BP app</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4F78E3;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #4F78E3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blood Pressure Monitor</h1>
+    <hr>
+    {% if result %}
+        <h2>Diastolic Blood Pressure: {{ result }}</h2>
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <label for="Mean_Pulse_Width_at_Half_Height">Mean Pulse Width at Half-Height:</label>
+        <input type="text" name="Mean_Pulse_Width_at_Half_Height" required>
+
+        <label for="Mean_Peak_to_Peak_Interval">Mean Peak to Peak Interval:</label>
+        <input type="text" name="Mean_Peak_to_Peak_Interval" required>
+
+        <label for="Mean_Pulse_Interval">Mean Pulse Interval:</label>
+        <input type="text" name="Mean_Pulse_Interval" required>
+
+        <label for="Mean_Peak_Values_PPG_2">Mean Peak Values PPG 2:</label>
+        <input type="text" name="Mean_Peak_Values_PPG_2" required>
+
+        <label for="Mean_Offset_Values_PPG_2">Mean Offset Values PPG 2:</label>
+        <input type="text" name="Mean_Offset_Values_PPG_2" required>
+
+        <label for="Mean_Peak_Time_Interval_of_PPG_2">Mean Peak Time Interval of PPG 2:</label>
+        <input type="text" name="Mean_Peak_Time_Interval_of_PPG_2" required>
+
+        <label for="Mean_Offset_Time_Interval_of_PPG_2">Mean Offset Time Interval of PPG 2:</label>
+        <input type="text" name="Mean_Offset_Time_Interval_of_PPG_2" required>
+
+        <label for="Mean_Systolic_Peak_Time">Mean Systolic Peak Time:</label>
+        <input type="text" name="Mean_Systolic_Peak_Time" required>
+
+        <label for="Mean_Peak_Amplitude">Mean Peak Amplitude:</label>
+        <input type="text" name="Mean_Peak_Amplitude" required>
+
+        <label for="Mean_Offset_Amplitude">Mean Offset Amplitude:</label>
+        <input type="text" name="Mean_Offset_Amplitude" required>
+
+        <label for="Heart_Rate_BPM">Heart Rate (BPM):</label>
+        <input type="text" name="Heart_Rate_BPM" required>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
