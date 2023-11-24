@@ -40,12 +40,9 @@
 <body>
     <h1>Blood Pressure Monitor</h1>
     <hr>
-    {% if result %}
         <h2>Diastolic Blood Pressure: {{ result }}</h2>
-    {% endif %}
 
     <form action="" method="POST">
-        {% csrf_token %}
         
         <label for="Mean_Pulse_Width_at_Half_Height">Mean Pulse Width at Half-Height:</label>
         <input type="text" name="Mean_Pulse_Width_at_Half_Height" required>
